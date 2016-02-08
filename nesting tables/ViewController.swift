@@ -10,16 +10,38 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var companies: [Company]?
+    
+    //MARK: IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.companies = generateCompanies()
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        self.tableView.reloadData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
+extension ViewController: UITableViewDataSource {
+    //MARK: UITableViewDataSource
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let companies = companies else { return 0 }
+        return companies.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+}
+
+
+extension ViewController: UITableViewDelegate {
+    //MARK: UITableViewDelegate
+}
