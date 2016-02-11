@@ -10,6 +10,21 @@ import UIKit
 
 class WorkerTableViewCell: UITableViewCell {
     
+    static let cellID = "WorkerCell"
+    static var desiredCellHeight: CGFloat {
+        get {
+            return CGFloat(55)
+        }
+    }
+    static var nib: UINib {
+        get {
+            let nibNambe = "WorkerTableViewCell"
+            let bundle = NSBundle.mainBundle()
+            let nib = UINib(nibName: nibNambe, bundle: bundle)
+            return nib
+        }
+    }
+    
     //IBOutlets
     @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

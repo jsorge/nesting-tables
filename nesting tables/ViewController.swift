@@ -45,3 +45,44 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     //MARK: UITableViewDelegate
 }
+
+
+class CompanyCell: UITableViewCell {
+    
+    private var company: Company?
+    
+    //IBOutlets
+    @IBOutlet weak var companyNameLabel: UILabel!
+    @IBOutlet weak var workerTableView: UITableView!
+    
+    //MARK: Overrides
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        workerTableView.dataSource = self
+        workerTableView.delegate = self
+        
+        workerTableView.registerNib(WorkerTableViewCell.nib, forCellReuseIdentifier: WorkerTableViewCell.cellID)
+    }
+    
+}
+
+extension CompanyCell: UITableViewDataSource {
+    //MARK: UITableViewDataSource
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let company = company else { return 0 }
+        
+        return company.workers.count
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        guard let company = company else { return UITableViewCell() }
+        
+        return UITableViewCell()
+    }
+}
+
+extension CompanyCell: UITableViewDelegate {
+    
+}
