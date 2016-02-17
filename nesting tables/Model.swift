@@ -45,16 +45,20 @@ func generateCompanies() -> [Company] {
     }
     
     do {
-        let marissa = Worker(name: "Marissa", imageName: .Female)
-        let yahoo = Company(name: "Yahoo", workers: [marissa])
-        companies.append(yahoo)
+        let bruce = Worker(name: "Bruce", imageName: .Male)
+        let clark = Worker(name: "Clark", imageName: .Male)
+        let diana = Worker(name: "Diana", imageName: .Female)
+        let kendra = Worker(name: "Kendra", imageName: .Female)
+        let justiceLeague = Company(name: "Justice League", workers: [bruce, clark, diana, kendra])
+        companies.append(justiceLeague)
     }
     
     do {
-        let emily = Worker(name: "Emily", imageName: .Female)
-        let atticus = Worker(name: "Atticus", imageName: .Male)
-        let home = Company(name: "Sorgedom", workers: [emily, atticus])
-        companies.append(home)
+        let robinson = Worker(name: "Robinson", imageName: .Male)
+        let nelson = Worker(name: "Nelson", imageName: .Male)
+        let felix = Worker(name: "Felix", imageName: .Male)
+        let mariners = Company(name: "Mariners", workers: [robinson, nelson, felix])
+        companies.append(mariners)
     }
     
     return companies
