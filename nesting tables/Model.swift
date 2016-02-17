@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum Image: String {
+public enum Image: String {
     case Male = "male"
     case Female = "female"
 }
 
 
-struct Company {
+public struct Company {
     let name: String
     let workers: [Worker]
 }
@@ -48,6 +48,13 @@ func generateCompanies() -> [Company] {
         let marissa = Worker(name: "Marissa", imageName: .Female)
         let yahoo = Company(name: "Yahoo", workers: [marissa])
         companies.append(yahoo)
+    }
+    
+    do {
+        let emily = Worker(name: "Emily", imageName: .Female)
+        let atticus = Worker(name: "Atticus", imageName: .Male)
+        let home = Company(name: "Sorgedom", workers: [emily, atticus])
+        companies.append(home)
     }
     
     return companies

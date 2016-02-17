@@ -37,52 +37,30 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let companies = companies else { return UITableViewCell() }
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(CompanyCell.cellID, forIndexPath: indexPath) as! CompanyCell
+        let company = companies[indexPath.row]
+        cell.configureWithCompany(company)
+        
+        return cell
     }
 }
 
 
 extension ViewController: UITableViewDelegate {
+    
     //MARK: UITableViewDelegate
-}
-
-
-class CompanyCell: UITableViewCell {
-    
-    private var company: Company?
-    
-    //IBOutlets
-    @IBOutlet weak var companyNameLabel: UILabel!
-    @IBOutlet weak var workerTableView: UITableView!
-    
-    //MARK: Overrides
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var height: CGFloat = 45
+        guard let companies = companies else { return height }
         
-        workerTableView.dataSource = self
-        workerTableView.delegate = self
+        let company = companies[indexPath.row]
+        for _ in company.workers {
+            height += WorkerTableViewCell.desiredCellHeight
+        }
         
-        workerTableView.registerNib(WorkerTableViewCell.nib, forCellReuseIdentifier: WorkerTableViewCell.cellID)
+        return height
     }
-    
-}
-
-extension CompanyCell: UITableViewDataSource {
-    //MARK: UITableViewDataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let company = company else { return 0 }
-        
-        return company.workers.count
-    }
-    
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let company = company else { return UITableViewCell() }
-        
-        return UITableViewCell()
-    }
-}
-
-extension CompanyCell: UITableViewDelegate {
     
 }

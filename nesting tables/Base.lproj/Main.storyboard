@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,17 +18,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mvc-Ih-k4a">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mvc-Ih-k4a">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Tih-HN-Ozh">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CompanyCell" rowHeight="125" id="Tih-HN-Ozh" customClass="CompanyCell" customModule="nesting_tables" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tih-HN-Ozh" id="acz-8H-NeB">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="124.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzz-XN-8cu">
+                                                    <rect key="frame" x="25" y="15" width="567" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uH3-9T-hhf">
+                                                    <rect key="frame" x="8" y="45" width="584" height="71"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="90" id="xLA-Ur-Pci"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="xLA-Ur-Pci"/>
+                                                        </mask>
+                                                    </variation>
+                                                </tableView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Gzz-XN-8cu" secondAttribute="trailing" id="1R4-Oh-tqd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="uH3-9T-hhf" secondAttribute="trailing" id="3IS-0j-cgf"/>
+                                                <constraint firstItem="uH3-9T-hhf" firstAttribute="top" secondItem="Gzz-XN-8cu" secondAttribute="bottom" constant="10" id="HTW-Sm-67W"/>
+                                                <constraint firstItem="uH3-9T-hhf" firstAttribute="leading" secondItem="acz-8H-NeB" secondAttribute="leadingMargin" id="Ofn-yR-EEv"/>
+                                                <constraint firstItem="Gzz-XN-8cu" firstAttribute="top" secondItem="acz-8H-NeB" secondAttribute="topMargin" constant="7" id="YKM-kW-bJO"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="uH3-9T-hhf" secondAttribute="bottom" id="YeG-Hd-5BH"/>
+                                                <constraint firstItem="Gzz-XN-8cu" firstAttribute="leading" secondItem="acz-8H-NeB" secondAttribute="leadingMargin" constant="17" id="pIH-UB-DYH"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="companyNameLabel" destination="Gzz-XN-8cu" id="2c9-oO-aLR"/>
+                                            <outlet property="workerTableView" destination="uH3-9T-hhf" id="amP-1t-oO7"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -40,9 +75,13 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mvc-Ih-k4a" secondAttribute="bottom" id="wVa-Qq-twM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Mvc-Ih-k4a" id="Chf-KH-VfE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="413" y="418"/>
         </scene>
     </scenes>
 </document>

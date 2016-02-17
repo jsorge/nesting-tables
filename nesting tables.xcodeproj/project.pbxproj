@@ -15,6 +15,7 @@
 		9386E5EF1C63192300D6D11A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9386E5EE1C63192300D6D11A /* Model.swift */; };
 		93E071F41C67B98A00778BAB /* WorkerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E071F21C67B98A00778BAB /* WorkerTableViewCell.swift */; };
 		93E071F51C67B98A00778BAB /* WorkerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E071F31C67B98A00778BAB /* WorkerTableViewCell.xib */; };
+		93E071F71C74253500778BAB /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E071F61C74253500778BAB /* CompanyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9386E5EE1C63192300D6D11A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		93E071F21C67B98A00778BAB /* WorkerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkerTableViewCell.swift; path = Views/WorkerTableViewCell.swift; sourceTree = "<group>"; };
 		93E071F31C67B98A00778BAB /* WorkerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WorkerTableViewCell.xib; path = Views/WorkerTableViewCell.xib; sourceTree = "<group>"; };
+		93E071F61C74253500778BAB /* CompanyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompanyCell.swift; path = Views/CompanyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				9386E5DC1C63188900D6D11A /* AppDelegate.swift */,
 				9386E5DE1C63188900D6D11A /* ViewController.swift */,
+				93E071F61C74253500778BAB /* CompanyCell.swift */,
 				9386E5E01C63188900D6D11A /* Main.storyboard */,
 				93E071F21C67B98A00778BAB /* WorkerTableViewCell.swift */,
 				93E071F31C67B98A00778BAB /* WorkerTableViewCell.xib */,
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E071F71C74253500778BAB /* CompanyCell.swift in Sources */,
 				9386E5EF1C63192300D6D11A /* Model.swift in Sources */,
 				93E071F41C67B98A00778BAB /* WorkerTableViewCell.swift in Sources */,
 				9386E5DF1C63188900D6D11A /* ViewController.swift in Sources */,
